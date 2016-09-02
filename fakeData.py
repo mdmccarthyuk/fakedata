@@ -8,10 +8,10 @@ countryCodes = ['en_GB/United Kingdom','fr_FR/France','pl_PL/Poland','it_IT/Ital
 personalTaxonomyCodes = ["02001", "02002", "02003", "02004", "03001", "03002", "03003", "10001", "10002", "10003"]
 householdTaxonomyCodes = ["01000", "01001", "01002"]
 
-fake = Factory.create('en_GB')
 randomFactory = random
 
 def makeHousehold():
+        global fake
 	family=[]
 	adultAge=randomFactory.randint(18,60)
 	maxChildAge=int(adultAge*0.25)
@@ -66,6 +66,7 @@ def makeHousehold():
 	return family
 
 def main():
+        global fake
 	#GENERATE COUNTRIES
 	with open('output.csv','w') as outputFile:
 		for locale in countryCodes:
